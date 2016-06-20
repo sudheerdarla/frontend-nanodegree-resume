@@ -7,7 +7,7 @@ var formattedRole = HTMLheaderRole.replace("%data%", "Web Developer");
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
 
-
+// object of work with job as array of works objects.
 var work = {
 	"jobs" : [
 		{
@@ -28,24 +28,7 @@ var work = {
 }
 
 
-for (jobs in work){
-    if (work.hasOwnProperty(jobs)) {
-    	console.log(work[jobs]);
-    	for(var i = 0; i < jobs.length; i++) { 
-    		console.log(work[jobs][i]);  		
-	    		for (job in work[jobs][i]){
-				    if (work[jobs][i].hasOwnProperty(job)) {
-
-
-				    }
-				}       
-			console.log(work[jobs][i].employer);
-			console.log(work[jobs][i].title);
-    	}
-        
-    }
-}
-
+// object of projects with project as array of project objects.
 
 var projects = {
 	"project" : [
@@ -64,6 +47,7 @@ var projects = {
 	]
 }
 
+// object of bio objects and arrays inside.
 
 var bio = {
 	"name" : "Sudheer",
@@ -79,6 +63,7 @@ var bio = {
 	"skills" : ["HTML5", "CSS3", "JavaScript", "Bootstrap"]
 }
 
+// object of educations with schools as array of school objects.
 
 var education = {
 	"schools": [{
@@ -100,11 +85,17 @@ var education = {
 }
 
 
+// adding bio to the resume
 
 if(bio.skills) {
+
+	// appending skill section to the header of the resume.
 	$("#header").append(HTMLskillsStart);
 
+	// replacing the %data% strings with the skills that i have in bio object and setting it equal to the formattedSkill.
 	var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+
+	// appending the skills to the skills id.
 	$("#skills").append(formattedSkill);
 	formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
 	$("#skills").append(formattedSkill);
@@ -114,3 +105,17 @@ if(bio.skills) {
 	$("#skills").append(formattedSkill);
 }
 
+// finding jobs array in work object.
+for (jobs in work){
+$("#workExperience").append(HTMLworkStart);  
+    if (work.hasOwnProperty(jobs)) {
+    	// checking through the jobs array to find properties and keys for respective jobs as objects.
+    	for(var i = 0; i < jobs.length; i++) { 
+			var formattedTitle = HTMLworkTitle.replace("%data%", work[jobs][i].title);
+			var formattedEmployer = HTMLworkEmployer.replace("%data%", work[jobs][i].employer);
+			$(".work-entry:last").append(formattedEmployer + formattedTitle);
+			
+    	}
+        
+    }
+}
