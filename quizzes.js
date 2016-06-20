@@ -11,6 +11,25 @@ This is empty on purpose! Your code to build the resume will go here.
 
 
 
+// quizz
+	// var html = '<script src="http://hackyourwebsite.com/eviljavascript.js"></script>';
+
+	// var charEscape = function(_html) {
+	//     var newHTML = _html;
+	//     var testarray;
+	//     var marks;
+	//     // How will you make sure that newHTML doesn't contain any < or > ?
+	//     // Your code goes here!
+	//     for(var i = 0; i < newHTML.length; i++) {
+	//        marks =  newHTML.indexOf("<");
+	//     }
+	//     // Don't delete this line!
+	//     return marks;
+	// };
+
+	// // Did your code work? The line below will tell you!
+	// console.log(charEscape(html));
+
 
 
 // quizz

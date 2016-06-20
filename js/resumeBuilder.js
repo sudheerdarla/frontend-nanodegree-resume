@@ -1,5 +1,13 @@
 
 
+
+var formattedName = HTMLheaderName.replace("%data%", "Sudheer");
+var formattedRole = HTMLheaderRole.replace("%data%", "Web Developer");
+
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
+
+
 var work = {
 	"jobs" : [
 		{
@@ -20,19 +28,38 @@ var work = {
 }
 
 
+for (jobs in work){
+    if (work.hasOwnProperty(jobs)) {
+    	console.log(work[jobs]);
+    	for(var i = 0; i < jobs.length; i++) { 
+    		console.log(work[jobs][i]);  		
+	    		for (job in work[jobs][i]){
+				    if (work[jobs][i].hasOwnProperty(job)) {
+
+
+				    }
+				}       
+			console.log(work[jobs][i].employer);
+			console.log(work[jobs][i].title);
+    	}
+        
+    }
+}
+
+
 var projects = {
 	"project" : [
 		{
 			"title" : "Web Developer",
 			"dates" : 2015,
 			"description" : "Started my freelancing career in this year!",
-			"images" : "url('http://spacecenter.org/wp-content/uploads/2013/04/Apollo-Soyuz-BG-2000x2000.jpg')";
+			"images" : "url('http://spacecenter.org/wp-content/uploads/2013/04/Apollo-Soyuz-BG-2000x2000.jpg')"
 		},
 		{
 			"title" : "Web Developer",
 			"dates" : 2016,
 			"description" : "Started my freelancing career in this year!",
-			"images" : "url('https://c1.staticflickr.com/1/414/19752043426_166097bd18_b.jpg')";
+			"images" : "url('https://c1.staticflickr.com/1/414/19752043426_166097bd18_b.jpg')"
 		}
 	]
 }
@@ -49,7 +76,7 @@ var bio = {
 		"twitter" : "twitter.com/sud",
 		"Location" : "Hyderabad"
 	},
-	"skills" : ["Web development, Designing"]
+	"skills" : ["HTML5", "CSS3", "JavaScript", "Bootstrap"]
 }
 
 
@@ -59,7 +86,8 @@ var education = {
 		"majasdfors": ["Diploma in Electrical"],
 		"minofdsrs": "others",
 		"grasdfdyears": 2014
-	}, {
+	}, 
+	{
 		"cities": "Manuaasdfguru",
 		"majors": ["Diploma in Electrical", "college dropout"],
 		"minors": "othsdfers",
@@ -73,6 +101,16 @@ var education = {
 
 
 
+if(bio.skills) {
+	$("#header").append(HTMLskillsStart);
 
-
+	var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+	$("#skills").append(formattedSkill);
+	formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+	$("#skills").append(formattedSkill);
+	formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+	$("#skills").append(formattedSkill);
+	formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
+	$("#skills").append(formattedSkill);
+}
 
